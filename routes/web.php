@@ -125,3 +125,18 @@ Route::get('/verify', function () {
     return view('auth/verify');
 });
 Auth::routes(['verify' => true]);
+
+Route::get('/mig', function()
+{
+    // Call and Artisan command from within your application.
+
+    Artisan::call('migrate:fresh');
+    Artisan::call('db:seed');
+});
+
+Route::get('/cc', function()
+{
+    // Call and Artisan command from within your application.
+    
+    Artisan::call('config:clear');
+});
